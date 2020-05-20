@@ -2,73 +2,73 @@
 
 Atlassian Jira Software, image is based on the Alpine base image with 0 vulnerabilities.
 
-## Current Docker image (~759MB)
+## Current Docker image (~778MB)
 
 Security scanning using Clair
 ```
-clair-scanner secureimages/jira-software:8.8.1-alpine-3.11.6
-2020/04/25 12:53:45 [INFO] ▶ Start clair-scanner
-2020/04/25 12:53:57 [INFO] ▶ Server listening on port 9279
-2020/04/25 12:53:57 [INFO] ▶ Analyzing a5304328ea0f44bd1ac8bb5416ad6b7cc3b747ac232c6af66d7d9f12e9854344
-2020/04/25 12:53:57 [INFO] ▶ Analyzing 681590a76c60ab1c11a2bd6ba11aa3d00428cd5a4ed164bf69fa8d0feefa5915
-2020/04/25 12:53:59 [INFO] ▶ Analyzing 3ae36756073e6174092169df76c9064abf53d0c3f7c36e58a0a57d2814c0715a
-2020/04/25 12:53:59 [INFO] ▶ Analyzing 3581ba5eb0926320498d96489ba0eb4cb8faaea4f5b4d67fe90f1589996b8632
-2020/04/25 12:53:59 [INFO] ▶ Analyzing b09b02e1a0ed20e782e1d57b15247582f9dfe522e207a663dc327d00a53b6b58
-2020/04/25 12:54:01 [INFO] ▶ Analyzing 0cfc5c3eca04756b364521045236f8205627624b2a1844fb8c4ccd853da8d0b5
-2020/04/25 12:54:01 [INFO] ▶ Analyzing 0c786a5af9895a228fa7e63076657f0d4f2cabaf0922894a90e4b4714956a248
-2020/04/25 12:54:01 [INFO] ▶ Image [secureimages/jira-software:8.8.1-alpine-3.11.6] contains NO unapproved vulnerabilities
+clair-scanner secureimages/jira-software:8.9.0-alpine-3.11.6
+2020/05/20 11:11:51 [INFO] ▶ Start clair-scanner
+2020/05/20 11:12:09 [INFO] ▶ Server listening on port 9279
+2020/05/20 11:12:09 [INFO] ▶ Analyzing a5304328ea0f44bd1ac8bb5416ad6b7cc3b747ac232c6af66d7d9f12e9854344
+2020/05/20 11:12:09 [INFO] ▶ Analyzing b8418fcaa46c3d215536729a77540ab64e93d13a56a9c409dcec796cd2b4a594
+2020/05/20 11:12:09 [INFO] ▶ Analyzing 77d2d9daa10e258ac35032d152f0c33b75753e35dbfcf24a96a73b8bdc2b53c6
+2020/05/20 11:12:09 [INFO] ▶ Analyzing 7b16dcfdb33bb1b3202bbb4c95d2bd0b9d6b126b40b1966e6c640c866afba9e3
+2020/05/20 11:12:09 [INFO] ▶ Analyzing d68349834dc7e1498d4b8390eb0761d9ed85c29b2b656f3366ecf828e30e0a57
+2020/05/20 11:12:09 [INFO] ▶ Analyzing 7f3c16a2d7586818cfc48f47abbc485d78042002133e983292c7ec1ad0350e5c
+2020/05/20 11:12:09 [INFO] ▶ Analyzing 10ad0ad4744af211df1299f47d3ce03f0e8ff4103dc1f131083e111a8c9fc311
+2020/05/20 11:12:09 [INFO] ▶ Image [secureimages/jira-software:8.9.0-alpine-3.11.6] contains NO unapproved vulnerabilities
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.6.0 --no-progress secureimages/jira-software:8.8.1-alpine-3.11.6
-2020-04-25T09:54:04.177Z        INFO    Need to update DB
-2020-04-25T09:54:04.177Z        INFO    Downloading DB...
-2020-04-25T09:54:25.576Z        INFO    Detecting Alpine vulnerabilities...
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.7.0 --no-progress secureimages/jira-software:8.9.0-alpine-3.11.6
+2020-05-20T08:13:15.366Z        INFO    Need to update DB
+2020-05-20T08:13:15.366Z        INFO    Downloading DB...
+2020-05-20T08:13:36.954Z        INFO    Detecting Alpine vulnerabilities...
 
-secureimages/jira-software:8.8.1-alpine-3.11.6 (alpine 3.11.6)
+secureimages/jira-software:8.9.0-alpine-3.11.6 (alpine 3.11.6)
 ==============================================================
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 ```
 
-## Official Docker image (~772MB)
+## Official Docker image (~789MB)
 
 [https://hub.docker.com/r/atlassian/jira-software](https://hub.docker.com/r/atlassian/jira-software)
 ```
-docker pull atlassian/jira-software:8.8.1
+docker pull atlassian/jira-software:8.9.0
 ```
 
 Security scanning using Clair
 ```
-clair-scanner atlassian/jira-software:8.8.1
-2020/04/25 12:54:38 [INFO] ▶ Start clair-scanner
-2020/04/25 12:54:53 [INFO] ▶ Server listening on port 9279
-2020/04/25 12:54:53 [INFO] ▶ Analyzing 9b149207c14ccc7c04f7f633b0a930523710ba21a7b16e2ecfe39d48f66cc21f
-2020/04/25 12:54:53 [INFO] ▶ Analyzing cbdf172a7a4a570fda50e47076f05fe92941ea0c16217fcd49ac46ee77266fdd
-2020/04/25 12:54:53 [INFO] ▶ Analyzing 98558aadc1dc3c58cfaf76054219beebaa9e77fdd4f69cddbdb3c0139b5e2e26
-2020/04/25 12:54:53 [INFO] ▶ Analyzing 0d1696737b748c5cfcab13026189a06bc9af53751a545fb486482c73ff942051
-2020/04/25 12:54:53 [INFO] ▶ Analyzing f612b4817c8b3bdbf2c41a8767ca2721bd4d6569e1ab82171d581609be115675
-2020/04/25 12:54:53 [INFO] ▶ Analyzing 52654f1ff1d6ff7da8cb5b56ec116fde18859ab0e74d56cd11d394f85f24e1a5
-2020/04/25 12:54:53 [INFO] ▶ Analyzing 0abd897e7e7c85addc9e7eb59e259debe1320576938e603684312346626fb918
-2020/04/25 12:54:53 [INFO] ▶ Analyzing df3e2776244cffb26daa7c79a89ec6b7cc0e6700ef4c022872d3c1f909739480
-2020/04/25 12:54:53 [INFO] ▶ Analyzing 7544830e3a0f04cf6ed3ed4c5479c5aa55c60fac7f266cc6b7c8eb5a37bc9364
-2020/04/25 12:54:53 [INFO] ▶ Analyzing 5be5725632d58e702feaa6716470b3cdab6ea98c831c17d1381b835d54d6d13b
-2020/04/25 12:54:53 [INFO] ▶ Analyzing ae7915e3568376094fc06f4105deaa4b0cb8b50e71acbfd848d3f31a8b9c5204
-2020/04/25 12:54:53 [INFO] ▶ Analyzing 17df515da1afbbbd67f016f66422092b481b91a0eaad41e815b2b3619c12926d
-2020/04/25 12:54:53 [INFO] ▶ Analyzing 8d957ab0e20b6427a882ff7506f29bbbb94ba47b1fd8b1218c41df7bf786886d
-2020/04/25 12:54:53 [INFO] ▶ Analyzing 778fe4336a541fbadef10200f9dde666d74685157626e932310badaf774d779c
-2020/04/25 12:54:53 [WARN] ▶ Image [atlassian/jira-software:8.8.1] contains 48 total vulnerabilities
-2020/04/25 12:54:53 [ERRO] ▶ Image [atlassian/jira-software:8.8.1] contains 48 unapproved vulnerabilities
+clair-scanner atlassian/jira-software:8.9.0
+2020/05/20 11:13:43 [INFO] ▶ Start clair-scanner
+2020/05/20 11:13:59 [INFO] ▶ Server listening on port 9279
+2020/05/20 11:13:59 [INFO] ▶ Analyzing 6ef5a7b6cc6da3fe4489191c166763832ff732b6c346e7d77a2dbbd3e89a9f08
+2020/05/20 11:13:59 [INFO] ▶ Analyzing c774328901d4a9ee5201de46d502b8f56f9b6a5d21c64affa6ca96d3b69cfe68
+2020/05/20 11:13:59 [INFO] ▶ Analyzing 67b382b86062872cc280027bfb3cc103cba4e52bb66d23c590e0cb8647dd39fe
+2020/05/20 11:13:59 [INFO] ▶ Analyzing 4e0bca968c343d4488ae5b156e0b4a6630a6964bd401264b3fe9060a266f4ce7
+2020/05/20 11:13:59 [INFO] ▶ Analyzing 33db261f08cfde61ed408a1688df09cec342cfc8e55dfcf32818a7b0418814f5
+2020/05/20 11:13:59 [INFO] ▶ Analyzing 48aac7f877504db33ba7c4f499dc97cb249d21ca4a9912ecbf512e8f81a142ca
+2020/05/20 11:13:59 [INFO] ▶ Analyzing 66fb2870f0412489e7e5a93a6ec10beb65573148f93c656732149d0b2de4f0a0
+2020/05/20 11:13:59 [INFO] ▶ Analyzing e2c50d1062fd1139ad32c4e69c22cf95078fd599aef915612fc03f33ebf0ad14
+2020/05/20 11:13:59 [INFO] ▶ Analyzing 220b7d54f9f2a623293b1cedca36922d145c0b6e03ad2476e6276c1d460ccdf5
+2020/05/20 11:13:59 [INFO] ▶ Analyzing 8dd98114feac04eed68e37ecd78fddcb29a29e834e91296314654b3c7b7a5bd9
+2020/05/20 11:13:59 [INFO] ▶ Analyzing 32165d416d656b147abfc2d11ec973748cd6c7e2b1ddb80947cc1e781a53f657
+2020/05/20 11:14:00 [INFO] ▶ Analyzing 5732f4371c7c78da3d4d521a1a0eff11ff06646a299e41ffc3ec29430190a1b9
+2020/05/20 11:14:00 [INFO] ▶ Analyzing 80fabd3d55e7e3d7a49ce2f598728a0bf2a3c3b210fe53df6a94e26d02a0adbe
+2020/05/20 11:14:00 [INFO] ▶ Analyzing 957012cf3a84c717c95a3dce8239ca2d6145de7c882eecd9a826212b01b3cc88
+2020/05/20 11:14:00 [WARN] ▶ Image [atlassian/jira-software:8.9.0] contains 48 total vulnerabilities
+2020/05/20 11:14:00 [ERRO] ▶ Image [atlassian/jira-software:8.9.0] contains 48 unapproved vulnerabilities
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.6.0 --no-progress atlassian/jira-software:8.8.1
-2020-04-25T09:54:56.408Z        INFO    Need to update DB
-2020-04-25T09:54:56.408Z        INFO    Downloading DB...
-2020-04-25T09:55:14.865Z        INFO    Detecting Ubuntu vulnerabilities...
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.7.0 --no-progress atlassian/jira-software:8.9.0
+2020-05-20T08:14:02.567Z        INFO    Need to update DB
+2020-05-20T08:14:02.568Z        INFO    Downloading DB...
+2020-05-20T08:14:23.370Z        INFO    Detecting Ubuntu vulnerabilities...
 
-atlassian/jira-software:8.8.1 (ubuntu 18.04)
+atlassian/jira-software:8.9.0 (ubuntu 18.04)
 ============================================
-Total: 111 (UNKNOWN: 0, LOW: 22, MEDIUM: 67, HIGH: 22, CRITICAL: 0)
+Total: 111 (UNKNOWN: 0, LOW: 91, MEDIUM: 20, HIGH: 0, CRITICAL: 0)
 ```
