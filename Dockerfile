@@ -3,7 +3,7 @@ LABEL website="Secure Docker Images https://secureimages.dev"
 LABEL description="We secure your business from scratch."
 LABEL maintainer="hireus@secureimages.dev"
 
-ARG JIRA_VERSION=8.11.0
+ARG JIRA_VERSION=8.12.0
 ARG JIRA_PRODUCT=jira-software
 
 ENV LANG='en_US.UTF-8' \
@@ -11,7 +11,7 @@ ENV LANG='en_US.UTF-8' \
     LC_ALL='en_US.UTF-8'
 
 RUN apk add --no-cache --virtual .build-deps binutils tar zstd ;\
-    GLIBC_VER="2.31-r0" ;\
+    GLIBC_VER="2.32-r0" ;\
     ALPINE_GLIBC_REPO="https://github.com/sgerrand/alpine-pkg-glibc/releases/download" ;\
     GCC_LIBS_URL="https://archive.archlinux.org/packages/g/gcc-libs/gcc-libs-9.3.0-1-x86_64.pkg.tar.zst" ;\
     GCC_LIBS_SHA256="ccba6f5341008a3d693d7aeaf2423d2339a690b739b23a52dd03335acbcd94ab" ;\
@@ -43,20 +43,20 @@ RUN apk add --no-cache --virtual .build-deps binutils tar zstd ;\
     rm -rf /var/cache/apk/* /tmp/*
 
 RUN set -eux ;\
-    export JAVA_VERSION=jdk8u242-b08_openj9-0.18.1 ;\
-    export JAVA_FILE_VERSION=8u242b08_openj9-0.18.1 ;\
+    export JAVA_VERSION=jdk8u265-b01_openj9-0.21.0 ;\
+    export JAVA_FILE_VERSION=8u265b01_openj9-0.21.0 ;\
     ARCH="$(apk --print-arch)" ;\
     case "${ARCH}" in \
        ppc64el|ppc64le) \
-         ESUM='438cd1be6a3396d102482f6c2f77cf1146aa38ec866f7bc82739fa77cd172be0' ;\
+         ESUM='b1c91e757195b87d51027ea97fece00ac1adb9837b055e5f039dd45511fb3c0a' ;\
          BINARY_URL='https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/${JAVA_VERSION}/OpenJDK8U-jre_ppc64le_linux_openj9_${JAVA_FILE_VERSION}.tar.gz' ;\
          ;; \
        s390x) \
-         ESUM='9b11232cbffcd8fd243f6340ef7cc73ce37c437c66522c19e24d548a7e87b075' ;\
+         ESUM='ec573cb2361b5fee3944387329d7859889d73c6c8a7d5f7ecf0d95503efda726' ;\
          BINARY_URL='https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/${JAVA_VERSION}/OpenJDK8U-jre_s390x_linux_openj9_${JAVA_FILE_VERSION}.tar.gz' ;\
          ;; \
        amd64|x86_64) \
-         ESUM='985d3134b64c6196d4c9ddbc87af0c62b0e643cef71b29f3d25a8c7811811745' ;\
+         ESUM='0da0aad21f02b4f08f717647def8beafcf0116c36b195705416f46a1ab97f4de' ;\
          BINARY_URL='https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/${JAVA_VERSION}/OpenJDK8U-jre_x64_linux_openj9_${JAVA_FILE_VERSION}.tar.gz' ;\
          ;; \
        *) \
@@ -90,7 +90,7 @@ COPY bin $JIRA_SCRIPTS
 
 WORKDIR /tmp
 
-RUN export GLIBC_VERSION=2.31-r0 ;\
+RUN export GLIBC_VERSION=2.32-r0 ;\
     export GLIBC_DOWNLOAD_URL=https://github.com/sgerrand/alpine-pkg-glibc/releases/download/$GLIBC_VERSION ;\
     export GLIBC_BIN=glibc-bin-$GLIBC_VERSION.apk ;\
     export GLIBC_I18N=glibc-i18n-$GLIBC_VERSION.apk ;\
